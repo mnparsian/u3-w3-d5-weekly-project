@@ -61,3 +61,18 @@
     margin-right: 25%;
   }
 }
+
+.mainContent {
+  padding-bottom: 9rem !important;
+}
+
+.navButton {
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
+  font-size: 0.8rem !important;
+  color: #5e636d !important;
+  font-weight: bold !important;
+}
+.navButton:hover {
+  color: #fff !important;
+}

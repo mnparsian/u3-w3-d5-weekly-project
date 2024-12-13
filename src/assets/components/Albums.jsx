@@ -32,18 +32,28 @@ const Albums = ({ genre, title, tracks: externalTracks }) => {
   }, [genre, externalTracks]);
 
   return (
-    <Container>
+    <Container className="p-5 py-2">
       <h2 className="text-white">{title}</h2>
       <Row>
         {tracks.map((track) => (
           <Col xs={12} md={3} key={track.id} className="text-center">
-            <img className="img-fluid" src={track.album.cover_medium} alt={track.title} onClick={() => dispatch(setCurrentTrack(track))} />
-            <p className="text-white">
-              Track: "{track.title}"<br />
+            <img
+              className="img-fluid p-3"
+              style={{ width: "75%" }}
+              src={track.album.cover_medium}
+              alt={track.title}
+              onClick={() => dispatch(setCurrentTrack(track))}
+            />
+            <p className="text-white text-truncate">
+              Track: {track.title}
+              <br />
               Artist: {track.artist.name}
             </p>
-            <div onClick={() => dispatch(toggleLike(track.id))} style={{ cursor: "pointer", fontSize: "24px" }}>
-              {likedTracks.includes(track.id) ? <AiFillHeart color="red" /> : <AiOutlineHeart color="white" />}
+            <div
+              onClick={() => dispatch(toggleLike(track))} // ارسال کل اطلاعات آهنگ
+              style={{ cursor: "pointer", fontSize: "24px" }}
+            >
+              {likedTracks.some((t) => t.id === track.id) ? <AiFillHeart color="red" /> : <AiOutlineHeart color="white" />}
             </div>
           </Col>
         ))}

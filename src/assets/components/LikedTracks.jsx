@@ -9,7 +9,7 @@ const LikedTracks = () => {
   const likedTracks = useSelector((state) => state.likes.likedTracks);
   const dispatch = useDispatch();
 
-  if (likedTracks.length === 0) {
+  if (!likedTracks || likedTracks.length === 0) {
     return (
       <Container className="text-center text-white">
         <h2>Your Library</h2>
@@ -26,7 +26,8 @@ const LikedTracks = () => {
           <Col xs={12} md={3} key={track.id} className="text-center">
             <img className="img-fluid" src={track.album.cover_medium} alt={track.title} onClick={() => dispatch(setCurrentTrack(track))} />
             <p className="text-white">
-              Track: "{track.title}"<br />
+              Track: {track.title}
+              <br />
               Artist: {track.artist.name}
             </p>
             <div style={{ fontSize: "24px", color: "red" }}>

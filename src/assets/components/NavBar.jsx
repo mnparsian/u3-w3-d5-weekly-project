@@ -6,11 +6,21 @@ const NavBar = () => (
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mx-auto justify-content-center gap-5 text-secondary">
-          <Nav.Link href="#home">TRENDING</Nav.Link>
-          <Nav.Link href="#link">PODCAST</Nav.Link>
-          <Nav.Link href="#link">MOODS AND GENRES</Nav.Link>
-          <Nav.Link href="#link">NEW RELEASES</Nav.Link>
-          <Nav.Link href="#link">DISCOVER</Nav.Link>
+          <Nav.Link className="navButton" href="#home">
+            TRENDING
+          </Nav.Link>
+          <Nav.Link className="navButton" href="#link">
+            PODCAST
+          </Nav.Link>
+          <Nav.Link className="navButton" href="#link">
+            MOODS AND GENRES
+          </Nav.Link>
+          <Nav.Link className="navButton" href="#link">
+            NEW RELEASES
+          </Nav.Link>
+          <Nav.Link className="navButton" href="#link">
+            DISCOVER
+          </Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Container>

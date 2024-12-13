@@ -4,11 +4,12 @@ import logo from "../logo/logo.png";
 import { useDispatch } from "react-redux";
 import { setQuery } from "../../redux/slices/searchSlice";
 import { Link } from "react-router-dom";
+import { setActiveComponent } from "../../redux/slices/uiSlice";
 
 const Sidebar = () => {
   const dispatch = useDispatch();
   return (
-    <Container className="bg-dark text-white d-flex flex-column align-items-center p-4" style={{ height: "100vh" }}>
+    <Container className="bg-black text-white d-flex flex-column align-items-center p-4" style={{ height: "100vh" }}>
       <Row className="mb-5 w-100">
         <Col className="d-flex align-items-center">
           <Image src={logo} alt="Spotify Logo" width="120" className="me-auto" />
@@ -22,7 +23,7 @@ const Sidebar = () => {
           </Link>
         </Col>
         <Col className="mb-3">
-          <Link to="/library" className="d-flex align-items-center text-decoration-none text-white">
+          <Link to="/library" onClick={() => dispatch(setActiveComponent("likedTracks"))} className="d-flex align-items-center text-decoration-none text-white">
             <i className="bi bi-book-fill me-2"></i> Your Library
           </Link>
         </Col>

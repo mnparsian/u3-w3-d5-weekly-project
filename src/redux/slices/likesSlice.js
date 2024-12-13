@@ -9,11 +9,13 @@ const likesSlice = createSlice({
   initialState,
   reducers: {
     toggleLike: (state, action) => {
-      const trackId = action.payload;
-      if (state.likedTracks.includes(trackId)) {
-        state.likedTracks = state.likedTracks.filter((id) => id !== trackId);
+      const track = action.payload; // کل اطلاعات آهنگ
+      const exists = state.likedTracks.find((t) => t.id === track.id);
+
+      if (exists) {
+        state.likedTracks = state.likedTracks.filter((t) => t.id !== track.id);
       } else {
-        state.likedTracks.push(trackId);
+        state.likedTracks.push(track);
       }
     }
   }
